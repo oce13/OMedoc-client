@@ -60,8 +60,6 @@ export default class Login extends React.Component {
 
     login = () => {
 
-        //alert(this.state.email);
-
         fetch('http://127.0.0.1:3000/login', {
             method: 'POST',
             headers: {
@@ -86,8 +84,6 @@ export default class Login extends React.Component {
                     //alert(responseJson.message);
                 }
             })).catch((err) => console.log(err))
-
-
     }
 
     signup = () => {

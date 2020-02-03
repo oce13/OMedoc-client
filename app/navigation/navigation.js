@@ -1,12 +1,11 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator} from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Login from '../views/Login';
 import SignUp from '../views/Signup';
-import Home from '../views/Home';
 import Welcome from '../views/Welcome';
 import TabNav from './tabNavigation';
+import SearchBar from '../views/SearchBar';
 
 const AppNavigator = createStackNavigator({
     Welcome: {
@@ -32,9 +31,9 @@ const AppNavigator = createStackNavigator({
         navigationOptions: {
             headerShown: false,
         }
-    }
+    },
 },{
-    initialRouteName: 'Welcome',
+    initialRouteName: 'Home',
 });
 
 

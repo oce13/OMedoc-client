@@ -7,8 +7,8 @@ export default class Header extends React.Component {
         super(props);
         this.state = {
             address: "Lieu actuel",
+            navigation: this.props.navigation,
         }
-
     }
 
     render() {
@@ -24,13 +24,13 @@ export default class Header extends React.Component {
                 </TouchableOpacity>
                 <View style={styles.searchBox}>
                     <TextInput
+                        onTouchStart={() => this.state.navigation.navigate('SearchBar',{nav: this.state.navigation})}
                         style={styles.textInput}
                         placeholder="Rechercher"
                         onChangeText={(text) => this.setState({ email: text })}
                     />
-                    <Text>salut</Text>
+                    <Ionicons name="ios-funnel" size={25} color='darkgrey' />
                 </View>
-
             </View>
 
         )
@@ -38,50 +38,12 @@ export default class Header extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-    },
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        //justifyContent: 'center',
-        paddingLeft: 40,
-        paddingRight: 40,
-    },
     textInput: {
         width: Dimensions.get('window').width * 0.8,
-        padding: 16,
-        marginBottom: 20,
+        padding: 10,
         backgroundColor: '#f1f1f1',
-        borderRadius: 17,
-    },
-    button: {
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        padding: 16,
-        marginBottom: 20,
-        backgroundColor: '#00B0F0',
         borderRadius: 20,
-    },
-    buttonExt: {
-        backgroundColor: '#fff',
-        borderColor: '#00B0F0',
-        borderRadius: 20,
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        padding: 16,
-        marginBottom: 20,
-        borderWidth: 2,
-    },
-    textBtn: {
-        color: '#fff',
-        fontWeight: 'bold',
-
-    },
-    textBtnWhite: {
-        color: '#00B0F0',
-        fontWeight: 'bold',
+        fontSize: 18,
     },
     headerBox: {
         position: 'fixed',
@@ -103,8 +65,10 @@ const styles = StyleSheet.create({
     },
     searchBox: {
         flexDirection: 'row',
-        paddingLeft: 15,
+        // paddingLeft: 15,
         paddingTop: 10,
+        paddingBottom: 10,
         alignItems: 'center',
+        justifyContent: 'space-evenly',
     }
 });

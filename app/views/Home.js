@@ -14,8 +14,22 @@ export default class Home extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
+                <View>
+                    <Header navigation={this.props.navigation}/>
+                </View>
+                
                 <ScrollView style={styles.container}>
-                    <Header/>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
+                    <Text style={styles.gros}>SALUT</Text>
                 </ScrollView>
             </KeyboardAvoidingView>
         )
@@ -91,6 +105,10 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
+        fontWeight: 'bold',
+    },
+    gros:{
+        fontSize: 70,
         fontWeight: 'bold',
     }
 });

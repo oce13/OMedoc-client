@@ -28,6 +28,6 @@ Run in your terminal:
 ```
 npm start
 ```
-Use `i` if you want to run on a IOS simulator or `a` if you want an ANDROID simulator
+Press `i` if you want to run on a IOS simulator or `a` if you want an ANDROID simulator
 
 The app will reaload if you make edits.
