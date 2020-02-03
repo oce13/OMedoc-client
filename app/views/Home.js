@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView, AsyncStorage, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated, View, Dimensions } from 'react-native';
 import Header from '../components/Header.js';
+import Card from '../components/Card.js';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -19,17 +20,9 @@ export default class Home extends React.Component {
                 </View>
                 
                 <ScrollView style={styles.container}>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
-                    <Text style={styles.gros}>SALUT</Text>
+                    <Card/>
+                    <Card/>
+                    <Card/>
                 </ScrollView>
             </KeyboardAvoidingView>
         )
@@ -44,9 +37,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-        //justifyContent: 'center',
         paddingLeft: 40,
         paddingRight: 40,
+        paddingTop: 20,
     },
     Moto: {
         fontSize: '18',
