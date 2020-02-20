@@ -1,29 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, AsyncStorage, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, ScrollView, AsyncStorage, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated, View, Dimensions, FlatList } from 'react-native';
 import Header from '../components/Header.js';
 import Card from '../components/Card.js';
+import Pharma from '../data/pharma.js';
 
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            address: "Lieu actuel",
-        }
+    }
 
+    test(){
+        alert("GOGOGOGO");
     }
 
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
                 <View>
-                    <Header navigation={this.props.navigation}/>
+                    <Header navigation={this.props.navigation} />
                 </View>
-                
-                <ScrollView style={styles.container}>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                </ScrollView>
+
+                <FlatList
+                    data={Pharma}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                            onPress={this.test}
+                        >
+                        <Card
+                            name={item.name}
+                            photo={item.photo}
+                            address={item.photo}
+                            cat={item.categories}
+                        /></TouchableOpacity>
+                    )}
+                    keyExtractor={item => item.id}
+                    style={styles.container}
+                />
+
             </KeyboardAvoidingView>
         )
     }
@@ -40,6 +53,7 @@ const styles = StyleSheet.create({
         paddingLeft: 40,
         paddingRight: 40,
         paddingTop: 20,
+        marginBottom: 20,
     },
     Moto: {
         fontSize: '18',
@@ -100,7 +114,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
-    gros:{
+    gros: {
         fontSize: 70,
         fontWeight: 'bold',
     }
