@@ -6,7 +6,7 @@ import Home from '../views/Home';
 import Search from '../views/Search';
 import Orders from '../views/Orders';
 import Settings from '../views/Settings';
-import SndNaviagation from './sndNavigation';
+import Detail from '../views/Detail';
 import { Ionicons } from '@expo/vector-icons';
 import SearchBar from '../views/SearchBar';
 
@@ -19,6 +19,12 @@ const homeNav = createStackNavigator({
     },
     SearchBar: {
         screen: SearchBar,
+        navigationOptions: {
+            headerShown: false,
+        }
+    },
+    Detail: {
+        screen: Detail,
         navigationOptions: {
             headerShown: false,
         }

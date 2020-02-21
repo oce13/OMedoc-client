@@ -7,10 +7,14 @@ import Pharma from '../data/pharma.js';
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            
+        }
+        this.test = this.test.bind(this);
     }
 
     test(){
-        alert("GOGOGOGO");
+        this.props.navigation.navigate('Detail',{id: this.id, name: thi});
     }
 
     render() {
@@ -24,9 +28,11 @@ export default class Home extends React.Component {
                     data={Pharma}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                            onPress={this.test}
+                            onPress={()=>{this.props.navigation.navigate('Detail',{id: item.id, name: item.name, photo: item.photo});
+                        }}
                         >
                         <Card
+                            id={item.id}
                             name={item.name}
                             photo={item.photo}
                             address={item.photo}

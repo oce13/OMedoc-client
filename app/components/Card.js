@@ -5,6 +5,7 @@ export default class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.id,
             name: this.props.name,
             address:this.props.address,
             photo:this.props.photo,

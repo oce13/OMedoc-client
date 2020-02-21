@@ -18,7 +18,7 @@ export default[
         "name" : 'Pharmacie Nogent sur Marne',
         "address" : '',
         "categories" : [1,1],
-        "photo" : 'https://lh3.googleusercontent.com/proxy/L_jORgCwgV_2S5UoSsBGwOR1SF5jE3kE5DldvfbkHXsTGVVRmVCdI4r5ua3xKpNn6KDP4EdGmGcDwU8UrLs2ZEzOS3e4-aKeD9W__7rD4IBy6EuZhao'
+        "photo" : 'https://www.fontenaylevicomte.fr/mod_turbolead/getvue.php/1023_view.jpgps://lh3.googleusercontent.com/proxy/L_jORgCwgV_2S5UoSsBGwOR1SF5jE3kE5DldvfbkHXsTGVVRmVCdI4r5ua3xKpNn6KDP4EdGmGcDwU8UrLs2ZEzOS3e4-aKeD9W__7rD4IBy6EuZhao'
     },
     {
         "id": '3',
