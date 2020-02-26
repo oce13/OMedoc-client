@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     Moto: {
-        fontSize: '18',
+        fontSize: 18,
         fontWeight: 'bold',
         paddingBottom: 20,
         textAlign: 'center',
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     headerBox: {
-        position: 'fixed',
+        //position: 'fixed',
         width: Dimensions.get('window').width,
         paddingBottom: 15,
         paddingTop: 15,

@@ -25,6 +25,7 @@ export default class Detail extends React.Component {
                  />
                  <View>
                     <Text style={styles.name}>{this.state.name}</Text>
+                    <Text>{this.state.cat}</Text>
                  </View>
                  
                 
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        //alignItems: 'center',
+        alignItems: 'center',
         //paddingLeft: 40,
         //paddingRight: 40,
         //paddingTop: 20,
@@ -55,6 +56,9 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         marginBottom: 10,
         //borderRadius: 5,
+    },
+    info: {
+        alignItems: 'flex-start',
     },
     name: {
         fontSize: 25,

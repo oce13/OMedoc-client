@@ -174,12 +174,12 @@ const styles = StyleSheet.create({
         alignItems:'flex-start',
     },
     Moto: {
-        fontSize: '22',
+        fontSize: 22,
         fontWeight: 'bold',
 
     },
     Moto2: {
-        fontSize: '22',
+        fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#545BA8',

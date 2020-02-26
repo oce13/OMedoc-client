@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     headerBox: {
-        position: 'fixed',
+        //position: 'fixed',
         width: Dimensions.get('window').width,
         paddingBottom: 10,
         paddingTop: 10,

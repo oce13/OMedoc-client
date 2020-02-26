@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         paddingRight: 40,
     },
     Moto:{
-        fontSize: '18',
+        fontSize: 18,
         fontWeight: 'bold',
         paddingBottom: 20,
         textAlign: 'center',

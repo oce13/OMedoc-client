@@ -213,11 +213,11 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     Moto: {
-        fontSize: '22',
+        fontSize: 22,
         fontWeight: 'bold',
     },
     Moto2: {
-        fontSize: '22',
+        fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#545BA8',

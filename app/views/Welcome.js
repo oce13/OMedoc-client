@@ -74,12 +74,12 @@ const styles = StyleSheet.create({
         paddingRight: 40,
     },
     Moto: {
-        fontSize: '22',
+        fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'center',
     },
     Moto2: {
-        fontSize: '22',
+        fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#545BA8',
