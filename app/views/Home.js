@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, AsyncStorage, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated, View, Dimensions, FlatList } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, TouchableOpacity, View, Dimensions, FlatList } from 'react-native';
 import Header from '../components/Header.js';
 import Card from '../components/Card.js';
 import Pharma from '../data/pharma.js';
@@ -28,14 +28,14 @@ export default class Home extends React.Component {
                     data={Pharma}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                            onPress={()=>{this.props.navigation.navigate('Detail',{id: item.id, name: item.name, photo: item.photo});
+                            onPress={()=>{this.props.navigation.navigate('Detail',{id: item.id, name: item.name, photo: item.photo, cat: item.categories, address: item.address});
                         }}
                         >
                         <Card
                             id={item.id}
                             name={item.name}
                             photo={item.photo}
-                            address={item.photo}
+                            address={item.address}
                             cat={item.categories}
                         /></TouchableOpacity>
                     )}

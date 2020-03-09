@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, View, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated , Dimensions} from 'react-native';
+import { StyleSheet, Text, ScrollView, View, KeyboardAvoidingView, TextInput, TouchableOpacity, Dimensions} from 'react-native';
 
 export default class SearchBar extends React.Component {
     constructor(props) {

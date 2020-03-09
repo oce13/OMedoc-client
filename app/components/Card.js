@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, AsyncStorage, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated, View, Dimensions } from 'react-native';
+import { StyleSheet, Text,  Image,  View, Dimensions } from 'react-native';
 
 export default class Card extends React.Component {
     constructor(props) {
@@ -9,10 +9,24 @@ export default class Card extends React.Component {
             name: this.props.name,
             address:this.props.address,
             photo:this.props.photo,
-            cat:this.props.categories,
+            cat:this.props.cat,
         };
 
 
+    }
+
+    categories(){
+        var a="";
+        console.log(a);
+        this.state.cat.map((item, index)=>{
+            if(index === this.state.cat.length - 1){
+                a+=item;
+            }else{
+                a+=item + "・";
+            }
+            
+        });
+        return(a);
     }
 
     render() {
@@ -27,7 +41,7 @@ export default class Card extends React.Component {
                 <View style={styles.moreInfo}>
                     <Text style={styles.price}>5€</Text>
                     <Text> - </Text>
-                    <Text>Catégorie, catégorie</Text>
+                    <Text>{this.categories()}</Text>
                 </View>
 
 

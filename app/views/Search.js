@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, AsyncStorage, KeyboardAvoidingView, TextInput, TouchableOpacity, Image, Keyboard, Animated} from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { StyleSheet, Text, ScrollView, KeyboardAvoidingView} from 'react-native';
 
 export default class Home extends React.Component {
     constructor(props) {

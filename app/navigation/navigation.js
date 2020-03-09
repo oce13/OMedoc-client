@@ -5,7 +5,7 @@ import Login from '../views/Login';
 import SignUp from '../views/Signup';
 import Welcome from '../views/Welcome';
 import TabNav from './tabNavigation';
-import SearchBar from '../views/SearchBar';
+
 
 const AppNavigator = createStackNavigator({
     Welcome: {
