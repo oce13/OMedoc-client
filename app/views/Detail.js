@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, KeyboardAvoidingView, Image, View, Dimensions, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import Products from '../components/Products';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default class Detail extends React.Component {
     constructor(props) {
@@ -11,6 +13,7 @@ export default class Detail extends React.Component {
             address: this.props.navigation.state.params.address,
             photo: this.props.navigation.state.params.photo,
             cat: this.props.navigation.state.params.cat,
+            products: this.props.navigation.state.params.products,
         }
     }
 
@@ -37,13 +40,33 @@ export default class Detail extends React.Component {
                     />
                     <View style={styles.nameBox}>
                         <Text style={styles.name}>{this.state.name}</Text>
-                        <Text style={styles.greyText}>{this.categories()}</Text>
-                        <View style={styles.address}>
-                            <Ionicons name="ios-pin" size={25} color='darkgrey' />
-                            <Text style={styles.greyText}>  {this.state.address}</Text>
+                        <View style={styles.info}>
+                            <Text style={styles.greyText}>{this.categories()}</Text>
+                            <View style={styles.address}>
+                                <Ionicons name="ios-pin" size={15} color='#545BA8' />
+                                <Text style={styles.greyText}>  {this.state.address}</Text>
+                            </View>
                         </View>
+                        <Text style={styles.info2}>T'es un pizza lover ? Viens chez nous sans plus attendre!
+                        Nous saurons de donner le plaisir de manger une vrai pizza
+                        </Text>
                     </View>
-                    
+
+                    <FlatList
+                        data={this.state.products}
+                        renderItem={({ item }) => (
+                            <View>
+                            <Products
+                            name={item.cat}
+                            list={item.list}
+                            />
+                            </View>
+                            
+
+                        )}
+                        keyExtractor={item => item.cat}
+                    />
+
                 </View>
 
 
@@ -96,6 +119,18 @@ const styles = StyleSheet.create({
     },
     greyText: {
         color: 'darkgrey',
+        paddingBottom: 5,
         //fontWeight: 'bold',
+    },
+    info: {
+        width: Dimensions.get('window').width,
+        paddingLeft: 5,
+        paddingBottom: 10,
+        borderBottomWidth: 0.2,
+        borderBottomColor: 'darkgrey',
+    },
+    info2: {
+        paddingTop: 20,
+        paddingBottom: 10,
     }
 });
