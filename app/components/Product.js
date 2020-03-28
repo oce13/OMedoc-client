@@ -1,70 +1,81 @@
 import React from 'react';
-import { StyleSheet, Text,  Image,  View, Dimensions } from 'react-native';
+import { StyleSheet, Text, Image, View, Dimensions } from 'react-native';
 import list from '../data/products';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class Product extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             id: this.props.id,
-            
+
         };
-        this.name="";
+        this.name = "";
         this.description = "";
-        this.price= "";
+        this.price = "";
+        this.photo = "";
         this.retrieveData = this.retrieveData.bind(this);
     }
 
-    retrieveData(){
+    retrieveData() {
         var data = Object.values(list);
-        data.map((item, index)=>{
-            if(index === this.state.id){
-                
-                    this.name= item.name;
-                    this.description= item.Description;
-                    this.price= item.prix;
-                
-                console.log(index + item.name);
-            }else{
+        data.map((item, index) => {
+            if (index === this.state.id) {
+
+                this.name = item.name;
+                this.description = item.Description;
+                this.price = item.prix;
+                this.photo = item.photo;
+            } else {
                 //do nothing
             }
-            
+
         });
     }
 
     render() {
         this.retrieveData();
         return (
-            
-            <View >
-                <Text>{this.name}</Text>
-            </View>
+            <TouchableOpacity
+                onPress={() => { console.log('touché'); }}
+            >
+                <View style={styles.container}>
+                    <View style={styles.info}>
+                        <Text style={styles.name}>{this.name}</Text>
+                        <Text>{this.price}€</Text>
+                    </View>
+
+                    <Image source={{ uri: this.photo }} style={styles.photo} />
+                </View>
+            </TouchableOpacity>
+
         )
     }
 }
 
 const styles = StyleSheet.create({
-    cardBox: {
-        width: Dimensions.get('window').width * 0.9,
-        height: Dimensions.get('window').height * 0.25,
-        marginBottom: Dimensions.get('window').width * 0.04,
+    container: {
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: 'space-between',
+        marginLeft: 15,
+        paddingRight: 10,
+        paddingBottom: 10,
+        borderBottomWidth: 0.2,
+        borderColor: 'darkgrey',
+        paddingTop: 10,
     },
-    photoBox: {
-        flex: 1,
-        height: Dimensions.get('window').height * 0.25,
-        width: Dimensions.get('window').width * 0.9,
-        marginBottom: 10,
+    photo: {
+        width: 100,
+        height: 100,
         borderRadius: 5,
+        borderWidth: 1.5,
+        borderColor: '#f1f1f1',
+    },
+    info: {
+        paddingLeft: 5,
     },
     name: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#545BA8',
-    },
-    moreInfo: {
-        flexDirection: 'row',
-    },
-    price: {
-        fontWeight: 'bold',
+        fontSize: 15,
     }
 });

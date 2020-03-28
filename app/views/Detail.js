@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, KeyboardAvoidingView, Image, View, Dimensions, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Products from '../components/Products';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 export default class Detail extends React.Component {
     constructor(props) {
@@ -34,40 +34,42 @@ export default class Detail extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
-                <View style={styles.container}>
-                    <Image source={{ uri: this.props.navigation.state.params.photo }}
-                        style={styles.photoBox}
-                    />
-                    <View style={styles.nameBox}>
-                        <Text style={styles.name}>{this.state.name}</Text>
-                        <View style={styles.info}>
-                            <Text style={styles.greyText}>{this.categories()}</Text>
-                            <View style={styles.address}>
-                                <Ionicons name="ios-pin" size={15} color='#545BA8' />
-                                <Text style={styles.greyText}>  {this.state.address}</Text>
+                <ScrollView>
+                    <View style={styles.container}>
+                        <Image source={{ uri: this.props.navigation.state.params.photo }}
+                            style={styles.photoBox}
+                        />
+                        <View style={styles.nameBox}>
+                            <Text style={styles.name}>{this.state.name}</Text>
+                            <View style={styles.info}>
+                                <Text style={styles.greyText}>{this.categories()}</Text>
+                                <View style={styles.address}>
+                                    <Ionicons name="ios-pin" size={15} color='#545BA8' />
+                                    <Text style={styles.greyText}>  {this.state.address}</Text>
+                                </View>
                             </View>
-                        </View>
-                        <Text style={styles.info2}>T'es un pizza lover ? Viens chez nous sans plus attendre!
-                        Nous saurons de donner le plaisir de manger une vrai pizza
+                            <Text style={styles.info2}>T'es un pizza lover ? Viens chez nous sans plus attendre!
+                            Nous saurons de donner le plaisir de manger une vrai pizza
                         </Text>
+                        </View>
+
+                        <FlatList
+                            data={this.state.products}
+                            renderItem={({ item }) => (
+                                <View>
+                                    <Products
+                                        name={item.cat}
+                                        list={item.list}
+                                    />
+                                </View>
+
+
+                            )}
+                            keyExtractor={item => item.cat}
+                        />
+
                     </View>
-
-                    <FlatList
-                        data={this.state.products}
-                        renderItem={({ item }) => (
-                            <View>
-                            <Products
-                            name={item.cat}
-                            list={item.list}
-                            />
-                            </View>
-                            
-
-                        )}
-                        keyExtractor={item => item.cat}
-                    />
-
-                </View>
+                </ScrollView>
 
 
             </KeyboardAvoidingView>
@@ -81,20 +83,18 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f9f9f9',
         alignItems: 'center',
-        //paddingLeft: 40,
-        //paddingRight: 40,
-        //paddingTop: 20,
-        marginBottom: 20,
+        //marginBottom: 20,
     },
     nameBox: {
         alignItems: 'flex-start',
-        //backgroundColor: 'black',
+        backgroundColor: 'white',
         alignSelf: 'stretch',
+        paddingTop: 20,
         paddingLeft: 10,
         paddingBottom: 10,
-        borderBottomWidth: 0.2,
+        borderBottomWidth: 0.5,
         borderBottomColor: 'darkgrey',
 
     },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         //flex: 1,
         height: Dimensions.get('window').height * 0.35,
         width: Dimensions.get('window').width,
-        marginBottom: 10,
+        //marginBottom: 10,
         //borderRadius: 5,
     },
     address: {
