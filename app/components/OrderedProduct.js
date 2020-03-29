@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         paddingRight: 15,
         paddingBottom: 10,
-        borderBottomWidth: 0.2,
+        borderBottomWidth: 0.5,
         borderColor: 'darkgrey',
         paddingTop: 10,
     },

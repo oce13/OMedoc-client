@@ -17,6 +17,7 @@ class Detail extends React.Component {
             photo: this.props.navigation.state.params.photo,
             cat: this.props.navigation.state.params.cat,
             products: this.props.navigation.state.params.products,
+            description: this.props.navigation.state.params.descrip,
             modalVisible: false,
         }
         this.removeCart = this.removeCart.bind(this);
@@ -36,10 +37,10 @@ class Detail extends React.Component {
         return (a);
     }
 
-    removeCart(){
-        const action = { type: "REMOVE_ALL"};
+    removeCart() {
+        const action = { type: "REMOVE_ALL" };
         this.props.dispatch(action);
-        
+
     }
 
     render() {
@@ -72,7 +73,7 @@ class Detail extends React.Component {
                                         onPress={() => {
                                             this.setState({ modalVisible: false });
                                         }}
-                                        
+
                                     >
                                         <Text style={styles.textBtnWhite}>Rester</Text>
 
@@ -99,7 +100,7 @@ class Detail extends React.Component {
                                     </LinearGradient>
                                 </TouchableOpacity>
 
-                                
+
                             </View>
                         </View>
                     </Modal>
@@ -111,8 +112,13 @@ class Detail extends React.Component {
                         <TouchableOpacity
                             style={styles.close}
                             onPress={() => {
-                                //this.props.navigation.navigate('Home');
-                                this.setState({ modalVisible: true });
+                                if (this.props.items.length === 0) {
+                                    this.props.navigation.navigate('Home');
+                                } else {
+                                    this.setState({ modalVisible: true });
+                                }
+
+
                             }}
                         >
                             <Text style={{ color: '#545BA8', fontWeight: 'bold' }}>←</Text>
@@ -130,9 +136,7 @@ class Detail extends React.Component {
                                     <Text style={styles.greyText}>  {this.state.address}</Text>
                                 </View>
                             </View>
-                            <Text style={styles.info2}>T'es un pizza lover ? Viens chez nous sans plus attendre!
-                            Nous saurons de donner le plaisir de manger une vrai pizza
-                        </Text>
+                            <Text style={styles.info2}>{this.state.description}</Text>
                         </View>
 
                         <FlatList
@@ -208,7 +212,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         paddingLeft: 5,
         paddingBottom: 10,
-        borderBottomWidth: 0.2,
+        borderBottomWidth: 0.5,
         borderBottomColor: 'darkgrey',
     },
     info2: {
@@ -290,7 +294,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop: 20,
     },
-    textBtnWhite:{
+    textBtnWhite: {
         fontWeight: 'bold',
         color: '#545BA8',
     }

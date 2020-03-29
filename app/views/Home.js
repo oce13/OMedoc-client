@@ -28,7 +28,7 @@ export default class Home extends React.Component {
                     data={Pharma}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                            onPress={()=>{this.props.navigation.navigate('Detail',{id: item.id, name: item.name, photo: item.photo, cat: item.categories, address: item.address, products: item.products});
+                            onPress={()=>{this.props.navigation.navigate('Detail',{id: item.id, name: item.name, photo: item.photo, cat: item.categories, address: item.address, products: item.products, descrip: item.description});
                         }}
                         >
                         <Card

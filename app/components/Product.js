@@ -126,6 +126,7 @@ class Product extends React.Component {
                     <View style={styles.container}>
                         <View style={styles.info}>
                             <Text style={styles.name}>{this.state.name}</Text>
+                                <Text>{this.state.description}</Text>
                             <Text>{this.state.price}€</Text>
                         </View>
 
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         paddingRight: 10,
         paddingBottom: 10,
-        borderBottomWidth: 0.2,
+        borderBottomWidth: 0.5,
         borderColor: 'darkgrey',
         paddingTop: 10,
     },
@@ -167,6 +168,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 15,
+        fontWeight: 'bold',
     },
     centeredView: {
         flex: 1,

@@ -25,8 +25,8 @@ function cartItems(state = initialState, action) {
             };
 
             const finalState = {
-                ...state,
-                items: [...state.items, action.payload]
+                ...nextState,
+                items: [...nextState.items, action.payload]
             };
 
             return finalState;
