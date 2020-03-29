@@ -27,6 +27,7 @@ const homeNav = createStackNavigator({
         screen: Detail,
         navigationOptions: {
             headerShown: false,
+            gesturesEnabled: false,
         }
     },
 });
