@@ -5,7 +5,7 @@ import Products from '../components/Products';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class Detail extends React.Component {
     constructor(props) {
@@ -124,7 +124,6 @@ class Detail extends React.Component {
                         <View style={styles.nameBox}>
                             <Text style={styles.name}>{this.state.name}</Text>
                             <View style={styles.info}>
-                                <Text>{this.props.items.length}GROS</Text>
                                 <Text style={styles.greyText}>{this.categories()}</Text>
                                 <View style={styles.address}>
                                     <Ionicons name="ios-pin" size={15} color='#545BA8' />

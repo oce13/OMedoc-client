@@ -11,16 +11,19 @@ class Product extends React.Component {
         super(props);
         this.state = {
             id: this.props.id,
-            name: "",
-            description: "",
-            price: "",
-            photo: "",
-            quantity: 0,
+            name: this.props.name,
+            price: this.props.price,
+            photo: this.props.photo,
+            quantity: this.props.quantity,
             finalPrice: 0,
             modalVisible: false
         };
+        this.fp = this.state.price * this.state.quantity;
         this.handler = this.handler.bind(this);
         this.addToCart = this.addToCart.bind(this);
+        this.updateCart = this.updateCart.bind(this);
+        this.changeButton = this.changeButton.bind(this);
+
     }
 
     setModalVisible = (visible) => {
@@ -33,37 +36,51 @@ class Product extends React.Component {
         });
     }
 
-    componentWillMount() {
-        var data = Object.values(list);
-        data.map((item, index) => {
-            if (index === this.state.id) {
-                this.setState({
-                    name: item.name,
-                    description: item.Description,
-                    price: item.prix,
-                    photo: item.photo,
-                })
-
-            } else {
-                //do nothing
-            }
-
-        });
-    }
-
     addToCart() {
-
-        var fp = this.state.price * this.state.quantity;
-        this.setState({ finalPrice: fp }, () => {
-            
-            if (this.state.quantity >= 1) {
-                const action = { type: "ADD_TO_CART", payload: this.state };
-                this.props.dispatch(action);
-            }
-        });
-
+        if (this.state.quantity >= 1) {
+            const action = { type: "ADD_TO_CART", payload: this.state };
+            this.props.dispatch(action);
+        }
 
     }
+
+    updateCart() {
+        if (this.state.quantity >= 1) {
+            var fp = this.state.price * this.state.quantity;
+            this.setState({ finalPrice: fp }, () => {
+                const action = { type: "UPDATE_CART", payload: this.state };
+                this.props.dispatch(action);
+            });
+        }else if (this.state.quantity===0){
+            this.setState({ finalPrice: 0 }, () => {
+                const action = { type: "REMOVE_FROM_CART", payload: this.state };
+                this.props.dispatch(action);
+                
+            });
+        }
+
+    }
+
+    changeButton() {
+        this.fp = this.state.price * this.state.quantity;
+        if (this.state.quantity === 0) {
+            return (
+                <Text style={styles.textStyle}>Supprimer</Text>
+            );
+
+        } else {
+            return (
+                <Text style={styles.textStyle}>Mettre à jour</Text>
+            );
+
+        }
+
+    }
+
+    componentWillMount() {
+        this.setState({ finalPrice: this.state.price * this.state.quantity });
+    }
+
 
     render() {
 
@@ -94,12 +111,12 @@ class Product extends React.Component {
                             <View style={styles.center}>
                                 <Image source={{ uri: this.state.photo }} style={styles.photo2} />
                                 <Text style={styles.modalText}>Quantité</Text>
-                                <Quantity action={this.handler} qt={this.state.quantity} autho={false} />
+                                <Quantity action={this.handler} qt={this.state.quantity} autho={true} />
 
                                 <TouchableOpacity
                                     onPress={() => {
                                         this.setModalVisible(!modalVisible);
-                                        this.addToCart();
+                                        this.updateCart();
                                     }}
 
                                 >
@@ -110,7 +127,7 @@ class Product extends React.Component {
                                         location={[0.25, 0.2, 1]}
                                         style={styles.testBtn}
                                     >
-                                        <Text style={styles.textStyle}>Ajouter au panier</Text>
+                                        {this.changeButton()}
                                     </LinearGradient>
                                 </TouchableOpacity>
                             </View>
@@ -124,12 +141,17 @@ class Product extends React.Component {
                     onPress={() => { this.setModalVisible(true); }}
                 >
                     <View style={styles.container}>
-                        <View style={styles.info}>
-                            <Text style={styles.name}>{this.state.name}</Text>
-                            <Text>{this.state.price}€</Text>
+                        <View style={styles.withQuantity}>
+                            <Text style={styles.boldPurple}>x{this.state.quantity}</Text>
+                            <Image source={{ uri: this.state.photo }} style={styles.photo} />
+                            <View style={styles.info}>
+                                <Text style={styles.name}>{this.state.name}</Text>
+                                <Text>{this.state.price}€</Text>
+                            </View>
                         </View>
 
-                        <Image source={{ uri: this.state.photo }} style={styles.photo} />
+                        <Text style={styles.boldPurple}>{this.fp}€</Text>
+
                     </View>
                 </TouchableOpacity>
             </View>
@@ -144,7 +166,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-between',
         marginLeft: 15,
-        paddingRight: 10,
+        paddingRight: 15,
         paddingBottom: 10,
         borderBottomWidth: 0.2,
         borderColor: 'darkgrey',
@@ -167,6 +189,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 15,
+        fontWeight: 'bold',
     },
     centeredView: {
         flex: 1,
@@ -227,6 +250,15 @@ const styles = StyleSheet.create({
     },
     center: {
         alignItems: 'center',
+    },
+    withQuantity: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    boldPurple: {
+        fontWeight: 'bold',
+        color: '#545BA8',
     }
 });
 

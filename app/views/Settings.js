@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView, KeyboardAvoidingView} from 'react-native';
 
-export default class Home extends React.Component {
+export default class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
