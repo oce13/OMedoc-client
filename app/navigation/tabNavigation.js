@@ -9,6 +9,7 @@ import Settings from '../views/Settings';
 import Detail from '../views/Detail';
 import { Ionicons } from '@expo/vector-icons';
 import SearchBar from '../views/SearchBar';
+import Payment from '../views/Payment';
 
 const homeNav = createStackNavigator({
     Home: {
@@ -30,6 +31,13 @@ const homeNav = createStackNavigator({
             gesturesEnabled: false,
         }
     },
+    Payment: {
+        screen: Payment,
+        navigationOptions: {
+            headerShown: false,
+            gesturesEnabled: false,
+        }
+    }
 });
 
 const tabNavigator = createBottomTabNavigator({

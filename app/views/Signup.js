@@ -123,36 +123,36 @@ export default class Signup extends React.Component {
                         >
                             <Ionicons name="ios-arrow-round-back" size={50} color="black" />
                         </TouchableOpacity>
-                        <Text style={styles.Moto}>Become a part of our Community!</Text>
+                        <Text style={styles.Moto}>Rejoignez notre communité !</Text>
                     </View>
 
                     <View style={styles.containerInBetween}>
                         <TextInput
                             style={styles.textInput}
-                            placeholder="firstName"
+                            placeholder="Prénom"
                             onChangeText={(text) => this.setState({ firstName: text })}
                         />
                         <TextInput
                             style={styles.textInput}
-                            placeholder="lastName"
+                            placeholder="Nom"
                             onChangeText={(text) => this.setState({ lastName: text })}
                         />
                         <TextInput
                             style={styles.textInput}
-                            placeholder="email"
+                            placeholder="Email"
                             onChangeText={(text) => this.setState({ email: text })}
                         />
                         <TextInput
                             keyboardType={'phone-pad'}
                             maxLength={10}
                             style={styles.textInput}
-                            placeholder="phoneNumber"
+                            placeholder="Numéro de téléphone"
                             onChangeText={(text) => this.setState({ phoneNumber: text })}
                         />
                         <TextInput
                             secureTextEntry={true}
                             style={styles.textInput}
-                            placeholder="password"
+                            placeholder="Mot de passe"
                             onChangeText={(text) => this.setState({ password: text })}
                         />
                     </View>
@@ -168,7 +168,7 @@ export default class Signup extends React.Component {
                                 location={[0.25, 0.2, 1]}
                                 style={styles.testBtn}
                             >
-                                <Text style={styles.textBtn}>Register</Text>
+                                <Text style={styles.textBtn}>S'inscrire</Text>
                             </LinearGradient>
                         </TouchableOpacity>
 
@@ -183,7 +183,7 @@ export default class Signup extends React.Component {
                                 style={styles.buttonExt}
                                 onPress={() => this.props.navigation.navigate('HomeLog')}
                             >
-                                <Text style={styles.textBtnWhite}>LogIn</Text>
+                                <Text style={styles.textBtnWhite}>Connexion</Text>
 
                             </TouchableOpacity>
 

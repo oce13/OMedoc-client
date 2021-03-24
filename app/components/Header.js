@@ -27,7 +27,6 @@ export default class Header extends React.Component {
                         onTouchStart={() => this.state.navigation.navigate('SearchBar',{nav: this.state.navigation})}
                         style={styles.textInput}
                         placeholder="Rechercher"
-                        onChangeText={(text) => this.setState({ email: text })}
                     />
                     <Ionicons name="ios-funnel" size={25} color='darkgrey' />
                 </View>

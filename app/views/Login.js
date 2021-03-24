@@ -12,6 +12,7 @@ export default class Login extends React.Component {
         }
         this.imageHeight = new Animated.Value(220);
         this.logoMarginBottom = new Animated.Value(30);
+        this.login2 = this.login2.bind(this);
     }
 
     componentWillMount() {
@@ -86,6 +87,12 @@ export default class Login extends React.Component {
             })).catch((err) => console.log(err))
     }
 
+    login2(){
+        if((this.state.email==="paul.maschernay@gmail.com")&&(this.state.password==="okokok")){
+            this.props.navigation.navigate('Home');
+        }
+    }
+
     signup = () => {
         this.props.navigation.navigate('Signup');
     }
@@ -102,24 +109,24 @@ export default class Login extends React.Component {
                             <Ionicons name="ios-arrow-round-back" size={50} color="black" />
                         </TouchableOpacity>
                         
-                        <Text style={styles.Moto}>Login</Text>
+                        <Text style={styles.Moto}>Connexion</Text>
                     </View>
                     <View style={styles.containerInBetween}>
                         <TextInput
                             style={styles.textInput}
-                            placeholder="email"
+                            placeholder="Email"
                             onChangeText={(text) => this.setState({ email: text })}
                         />
                         <TextInput
                             secureTextEntry={true}
                             style={styles.textInput}
-                            placeholder="password"
+                            placeholder="Mot de passe"
                             onChangeText={(text) => this.setState({ password: text })}
                         />
                     </View>
                     <View>
                         <TouchableOpacity
-                            onPress={this.login}
+                            onPress={this.login2}
                         >
                             <LinearGradient
                                 colors={['#545BA8', '#925B9F']}
@@ -128,7 +135,7 @@ export default class Login extends React.Component {
                                 location={[0.25, 0.2, 1]}
                                 style={styles.testBtn}
                             >
-                                <Text style={styles.textBtn}>Login</Text>
+                                <Text style={styles.textBtn}>Connexion</Text>
                             </LinearGradient>
                         </TouchableOpacity>
 
@@ -143,7 +150,7 @@ export default class Login extends React.Component {
                                 style={styles.buttonExt}
                                 onPress={() => this.props.navigation.navigate('SignUp')}
                             >
-                                <Text style={styles.textBtnWhite}>Sign up</Text>
+                                <Text style={styles.textBtnWhite}>Inscription</Text>
 
                             </TouchableOpacity>
 

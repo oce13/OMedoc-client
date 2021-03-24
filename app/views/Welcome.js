@@ -17,7 +17,7 @@ export default class Welcome extends React.Component {
             <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
                 <ScrollView style={styles.container}>
                     <View style={{flexDirection: "row", justifyContent:'center', marginBottom: 30}}>
-                        <Text style={styles.Moto}>Your pharmacy.</Text><Text style={styles.Moto2}> Closer.</Text>
+                        <Text style={styles.Moto}>Votre pharmacie,</Text><Text style={styles.Moto2}> à domicile.</Text>
                     </View>
                     
                     
@@ -33,7 +33,7 @@ export default class Welcome extends React.Component {
                             location={[0.25, 0.2, 1]}
                             style={styles.testBtn}
                         >
-                            <Text style={styles.textBtn}>Login</Text>
+                            <Text style={styles.textBtn}>Connexion</Text>
                         </LinearGradient>
                     </TouchableOpacity>
 
@@ -48,7 +48,7 @@ export default class Welcome extends React.Component {
                             style={styles.buttonExt}
                             onPress={() => this.props.navigation.navigate('SignUp')}
                         >
-                            <Text style={styles.textBtnWhite}>Sign up</Text>
+                            <Text style={styles.textBtnWhite}>Inscription</Text>
 
                         </TouchableOpacity>
 

@@ -107,7 +107,7 @@ class Orders extends React.Component {
                 <View style={styles.pay}>
                     <TouchableOpacity
                         onPress={() => {
-                            alert('A implementer.');
+                            this.props.navigation.navigate("Payment");
                         }}
 
                     >

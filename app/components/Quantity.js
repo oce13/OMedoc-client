@@ -38,6 +38,7 @@ export default class Quantity extends React.Component {
 
 
     }
+    
     render() {
         return (
             <View style={styles.container} >
